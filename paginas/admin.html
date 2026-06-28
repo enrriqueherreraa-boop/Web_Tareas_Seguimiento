@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Administrador</title>
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- ========================= MENU ========================= -->
+<aside class="menu-lateral">
+
+<div class="institucion">
+<img src="../imagenes/Institucion.jpg" alt="Logo">
+<h2>Unidad Educativa "Simón Bolívar"</h2>
+</div>
+
+<p>Administrador</p>
+
+<div class="menu-grupo">
+  <button onclick="cambiarSeccion('inicio')">🏠 Inicio</button>
+</div>
+
+<div class="menu-grupo">
+  <button onclick="cambiarSeccion('usuarios')">Usuarios</button>
+</div>
+
+<div class="menu-grupo">
+  <button onclick="cambiarSeccion('sistema')">Estado del sistema</button>
+</div>
+
+<div class="espacio"></div>
+
+<button onclick="cerrarSesion()">🚪 Salir</button>
+
+</aside>
+
+<!-- ========================= CONTENIDO ========================= -->
+<main class="contenido">
+
+<!-- HEADER -->
+<div class="tarjeta encabezado">
+
+<div>
+<h1>Panel Administrador</h1>
+<p id="bienvenida"></p>
+</div>
+
+<div class="usuario-menu">
+<button class="icono-usuario" onclick="mostrarMenu()">👤</button>
+
+<div id="menuUsuario" class="menu-usuario">
+<strong id="nombreMenu"></strong>
+<p>Rol: Administrador</p>
+<hr>
+<button onclick="cerrarSesion()">Cerrar sesión</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= INICIO ========================= -->
+<section id="inicio" class="seccion">
+
+<div id="estadisticasAdmin"></div>
+
+<div class="tarjeta">
+<h2>Resumen del sistema</h2>
+<p>Gestión de usuarios y configuración general del sistema.</p>
+</div>
+
+</section>
+
+<!-- ========================= USUARIOS ========================= -->
+<section id="usuarios" class="seccion">
+
+<div class="tarjeta">
+
+<h2>Crear usuario</h2>
+
+<input type="text" id="nuevoUsuario" placeholder="Nombre de usuario">
+<input type="password" id="nuevaPassword" placeholder="Contraseña">
+
+<select id="rol" onchange="toggleMaterias()">
+<option value="docente">Docente</option>
+<option value="estudiante">Estudiante</option>
+</select>
+
+<!-- MATERIAS -->
+<div id="materiasBox" class="materias-box">
+<p><strong>Asignar materias (solo docentes)</strong></p>
+<div id="materiasCheckbox" class="materias-chips"></div>
+</div>
+
+<button onclick="crearUsuario()">Crear Usuario</button>
+
+</div>
+
+<div class="tarjeta">
+
+<h2>Usuarios registrados</h2>
+<div id="listaUsuarios"></div>
+
+</div>
+
+</section>
+
+<!-- ========================= SISTEMA ========================= -->
+<section id="sistema" class="seccion">
+
+  <div class="tarjeta">
+    <h2>⚙️ Estado del sistema</h2>
+    <div id="estadoSistema"></div>
+  </div>
+
+  <div class="tarjeta">
+    <h2>📊 Uso del sistema</h2>
+    <div id="usoSistema"></div>
+  </div>
+
+  <div class="tarjeta">
+    <h2>🔗 Relaciones críticas</h2>
+    <div id="relacionesSistema"></div>
+  </div>
+
+</section>
+
+<div id="panelEdicionDocente" class="tarjeta" style="display:none;">
+  <h2>Editar materias del docente</h2>
+
+  <h3 id="docenteNombre"></h3>
+
+  <div id="editarMateriasCheckbox"></div>
+
+  <br>
+
+  <button onclick="guardarMateriasDocente()">Guardar cambios</button>
+  <button onclick="cerrarPanelEdicion()">Cancelar</button>
+</div>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

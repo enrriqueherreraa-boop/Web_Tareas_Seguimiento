@@ -1,0 +1,725 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+
+/* =========================
+   BASE
+========================= */
+
+*{
+    box-sizing:border-box;
+}
+
+
+body{
+
+    margin:0;
+    font-family:'Inter',sans-serif;
+
+    background:
+    linear-gradient(
+    135deg,
+    #f8f5f2,
+    #efe2dc
+    );
+
+    color:#3b2a26;
+
+}
+
+
+/* =========================
+   LAYOUT GENERAL
+========================= */
+
+
+.layout{
+    display:flex;
+    min-height:100vh;
+    background:#f8f5f2;
+}
+
+
+
+/* =========================
+   MENU LATERAL
+========================= */
+
+
+.menu-lateral{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:250px;
+    height:100vh;
+
+    background:
+    linear-gradient(
+    180deg,
+    #4b1f2b,
+    #2d1118
+    );
+
+
+    padding:25px 18px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+
+    z-index:1000;
+
+}
+
+
+
+.institucion{
+
+    text-align:center;
+
+}
+
+
+
+.institucion img{
+
+    width:85px;
+    height:85px;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:8px;
+
+}
+
+
+
+.institucion h2{
+
+    color:white;
+
+    font-size:17px;
+
+}
+
+
+
+.menu-lateral p{
+
+    color:#ead6d0;
+    text-align:center;
+
+}
+
+
+
+/* botones navegación */
+
+.menu-lateral button{
+
+
+    background:transparent;
+
+    border:none;
+
+    color:white;
+
+    text-align:left;
+
+    padding:13px 15px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+
+    transition:.25s;
+
+
+}
+
+
+
+.menu-lateral button:hover{
+
+
+    background:#ffffff22;
+
+    transform:translateX(5px);
+
+
+}
+
+
+
+
+.espacio{
+
+    flex:1;
+
+}
+
+
+
+/* =========================
+   CONTENIDO
+========================= */
+
+
+.contenido{
+    margin-left:250px;
+    width:calc(100% - 250px);
+    padding:35px;
+}
+
+
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+
+.tarjeta{
+
+
+    background:white;
+
+
+    padding:25px;
+
+
+    border-radius:18px;
+
+
+    margin-bottom:25px;
+
+
+    box-shadow:
+
+    0 10px 30px rgba(70,30,30,.12);
+
+
+    border:
+
+    1px solid #ead8d2;
+
+
+}
+
+
+
+.tarjeta:hover{
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+/* =========================
+ TITULOS
+========================= */
+
+
+h1,h2,h3{
+
+    color:#4b1f2b;
+
+}
+
+
+
+
+p,label{
+
+    color:#6b4a42;
+
+}
+
+
+
+
+/* =========================
+   INPUTS
+========================= */
+
+
+input,
+select{
+
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    border:1px solid #d8c2ba;
+
+    margin-top:8px;
+
+    margin-bottom:15px;
+
+    background:#fff;
+
+
+}
+
+
+
+input:focus,
+select:focus{
+
+
+    outline:none;
+
+    border-color:#8b3a4a;
+
+    box-shadow:
+
+    0 0 0 3px #8b3a4a33;
+
+
+}
+
+
+
+/* =========================
+   BOTONES
+========================= */
+
+
+button{
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #7b3045,
+    #4b1f2b
+    );
+
+
+    color:white;
+
+    border:none;
+
+    padding:11px 18px;
+
+    border-radius:12px;
+
+
+    cursor:pointer;
+
+    font-weight:600;
+
+
+}
+
+
+
+button:hover{
+
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+
+.seccion{
+
+    display:none;
+
+    width:100%;
+
+}
+
+
+
+.seccion.activa{
+
+    display:block;
+
+}
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+
+.encabezado{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+}
+
+
+
+
+/* =========================
+   USUARIO MENU
+========================= */
+
+
+.usuario-menu{
+
+    position:relative;
+
+}
+
+
+
+.icono-usuario{
+
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    font-size:20px;
+
+
+}
+
+
+
+.menu-usuario{
+
+
+    display:none;
+
+    position:absolute;
+
+    right:0;
+
+    top:55px;
+
+
+    width:220px;
+
+
+    background:white;
+
+
+    padding:18px;
+
+
+    border-radius:15px;
+
+
+    box-shadow:0 15px 35px #0003;
+
+
+    z-index:2000;
+
+
+}
+
+
+
+.menu-activo{
+
+    display:block;
+
+}
+
+
+
+
+/* =========================
+ TARJETAS TAREAS
+========================= */
+
+
+.tarea{
+
+
+    background:#faf6f4;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ead8d2;
+
+
+}
+
+
+
+
+.tarea button{
+
+    margin-right:10px;
+
+}
+
+
+
+
+/* estados */
+
+
+.estado{
+
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-size:12px;
+
+}
+
+
+
+.estado-pendiente{
+
+    background:#b7791f;
+
+}
+
+
+.estado-progreso{
+
+    background:#7b3045;
+
+}
+
+
+.estado-completada{
+
+    background:#2f855a;
+
+}
+
+
+
+
+/* =========================
+   ESTADISTICAS
+========================= */
+
+
+.estadisticas{
+
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+
+gap:20px;
+
+
+}
+
+
+
+.tarjeta-mini{
+
+
+background:white;
+
+
+padding:20px;
+
+
+border-radius:18px;
+
+
+text-align:center;
+
+
+box-shadow:0 10px 25px #0002;
+
+
+}
+
+
+
+.tarjeta-mini strong{
+
+
+font-size:30px;
+
+color:#7b3045;
+
+
+}
+
+
+
+/* =========================
+   MATERIAS
+========================= */
+
+
+.materias-container,
+.materias-chips{
+
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:10px;
+
+
+}
+
+
+
+
+.materia-chip{
+
+
+padding:10px 15px;
+
+
+border-radius:30px;
+
+
+background:#ead8d2;
+
+
+cursor:pointer;
+
+
+font-weight:600;
+
+
+}
+
+
+
+.materia-chip:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
+.materia-chip.activa{
+
+
+background:#7b3045;
+
+color:white;
+
+
+}
+
+
+
+
+/* =========================
+   ACCIONES
+========================= */
+
+
+.acciones-tarea{
+
+
+display:flex;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+
+}
+
+
+
+/* =========================
+ RESPONSIVE
+========================= */
+
+
+@media(max-width:800px){
+
+
+.menu-lateral{
+
+position:fixed;
+left:0;
+top:0;
+
+width:250px;
+height:100vh;
+
+padding:25px;
+
+background:#4b1f2b;
+
+display:flex;
+flex-direction:column;
+
+gap:18px;
+
+box-sizing:border-box;
+
+z-index:1000;
+
+}
+.menu-lateral button{
+
+background:transparent;
+box-shadow:none;
+
+text-align:left;
+
+border-radius:12px;
+
+padding:12px;
+
+font-size:15px;
+
+}
+
+.menu-lateral button:hover{
+
+background:#7a3b4b;
+
+transform:none;
+
+}
+
+}

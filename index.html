@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguimiento de Tareas</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f4f8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    width:350px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="login">
+
+<h2>Seguimiento de Tareas</h2>
+
+<input type="text" id="usuario" placeholder="Usuario">
+
+<input type="password" id="password" placeholder="Contraseña">
+
+<label>
+<input type="checkbox">
+Mantener sesión iniciada
+</label>
+
+<br><br>
+<button id="btnLogin">
+    Ingresar
+</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/auth.js"></script>
+
+</body>
+</html

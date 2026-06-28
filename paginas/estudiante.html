@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Estudiante</title>
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- ======================
+MENU LATERAL
+====================== -->
+<aside class="menu-lateral">
+
+<div class="institucion">
+<img src="../imagenes/Institucion.jpg" alt="Logo Institución">
+<h2>Unidad Educativa "Simon Bolivar"</h2>
+</div>
+
+<p>Estudiante</p>
+
+<button onclick="cambiarSeccion('inicio')">🏠 Inicio</button>
+<button onclick="cambiarSeccion('tareas')">📚 Mis tareas</button>
+<button onclick="cambiarSeccion('progreso')">📈 Progreso</button>
+
+<div class="espacio"></div>
+
+<button onclick="cerrarSesion()">🚪 Salir</button>
+
+</aside>
+
+<!-- ======================
+CONTENIDO
+====================== -->
+<main class="contenido">
+
+<!-- HEADER -->
+<div class="tarjeta encabezado">
+
+<div>
+<h1>Panel Estudiante</h1>
+<p id="bienvenida"></p>
+</div>
+
+<div class="usuario-menu">
+
+<button class="icono-usuario" onclick="mostrarMenu()">👤</button>
+
+<div id="menuUsuario" class="menu-usuario">
+<strong id="nombreMenu"></strong>
+<p>Rol: Estudiante</p>
+<hr>
+<button onclick="cerrarSesion()">Cerrar sesión</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ======================
+INICIO
+====================== -->
+<section id="inicio" class="seccion">
+
+<div class="tarjeta">
+<h2>👋 Bienvenido</h2>
+<p id="resumenEstudiante"></p>
+</div>
+
+<div class="tarjeta">
+<h2>📚 Tareas recientes</h2>
+<div id="tareasInicio"></div>
+</div>
+
+</section>
+
+<!-- ======================
+TAREAS
+====================== -->
+<section id="tareas" class="seccion">
+
+<div class="tarjeta">
+
+<h2>📚 Mis Tareas</h2>
+
+<!-- BOTONES -->
+<div class="botones-estados">
+
+<button onclick="toggleTareas('pendientes')">🕒 Pendientes</button>
+<button onclick="toggleTareas('revision')">📎 Por revisar</button>
+<button onclick="toggleTareas('completadas')">✅ Completadas</button>
+
+</div>
+
+<!-- CONTENEDORES -->
+<div id="pendientes" class="bloque-tareas"></div>
+<div id="revision" class="bloque-tareas"></div>
+<div id="completadas" class="bloque-tareas"></div>
+
+</div>
+
+</section>
+
+<!-- ======================
+PROGRESO
+====================== -->
+<section id="progreso" class="seccion">
+
+<div class="tarjeta">
+
+<h2>📈 Mi rendimiento</h2>
+
+<div id="estadisticasEstudiante"></div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<!-- ======================
+SCRIPTS
+====================== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/estudiante.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Docente</title>
+
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+<div class="layout">
+
+<!-- ======================
+     MENU LATERAL
+======================= -->
+<aside class="menu-lateral">
+
+  <div class="institucion">
+    <img src="../imagenes/Institucion.jpg" alt="Logo Institución">
+
+    <h2>
+      Unidad Educativa "Simon Bolivar"
+    </h2>
+  </div>
+
+  <p>Docente</p>
+
+  <button onclick="cambiarSeccion('inicio')">🏠 Inicio</button>
+  <button onclick="cambiarSeccion('tareas')">📝 Tareas</button>
+  <button onclick="cambiarSeccion('actividad')">📊 Actividad</button>
+  <button onclick="cambiarSeccion('reportes')">📊 Reportes</button>
+
+  <div class="espacio"></div>
+
+  <button onclick="cerrarSesion()">🚪 Salir</button>
+
+</aside>
+
+<!-- ======================
+     CONTENIDO
+======================= -->
+<main class="contenido">
+
+<!-- ======================
+     CABECERA
+======================= -->
+<div class="tarjeta encabezado">
+
+  <div>
+    <h1>Panel Docente</h1>
+    <p id="bienvenida"></p>
+  </div>
+
+  <div class="usuario-menu">
+
+<button 
+class="icono-usuario" 
+onclick="mostrarMenu()">
+👤
+</button>
+</div>
+
+<div id="menuUsuario" class="menu-usuario">
+
+<strong id="nombreMenu"></strong>
+
+<p>
+Rol: Docente
+</p>
+
+<hr>
+
+<button onclick="cerrarSesion()">
+Cerrar sesión
+</button>
+
+</div>
+
+</div>
+
+<!-- ======================
+     INICIO
+======================= -->
+<section id="inicio" class="seccion">
+
+  <div id="estadisticas"></div>
+
+  <div class="tarjeta">
+    <h2>📈 Estado general de clases</h2>
+    <div id="estadoClases"></div>
+  </div>
+
+  <div class="tarjeta">
+    <h2>🕒 Actividad reciente</h2>
+    <div id="actividadReciente">
+      <p>Cargando actividad...</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ======================
+     TAREAS
+======================= -->
+<section id="tareas" class="seccion">
+
+  <!-- CREAR TAREA -->
+  <div class="tarjeta">
+
+    <h2>📝 Asignar tarea</h2>
+
+    <input type="text" id="tituloGlobal" placeholder="Título de la tarea">
+
+<input type="date" id="fechaGlobal">
+
+
+<h3>📌 Tipo de tarea</h3>
+
+<div class="tipo-tarea">
+
+<label>
+<input 
+type="radio"
+name="tipoTarea"
+value="Individual"
+checked
+onclick="cambiarTipoTarea()">
+
+🧑 Individual
+</label>
+
+</div>
+
+
+
+<div id="materiaDocente" class="materias-container">
+
+<p>📚 Cargando materias...</p>
+
+</div>
+
+
+
+<button onclick="asignarATodos()">
+
+Asignar tarea
+
+</button>
+
+  </div>
+
+  <!-- LISTA DE TAREAS -->
+  <div class="tarjeta">
+
+    <h2>📚 Tareas de estudiantes</h2>
+
+    <div class="botones-estados">
+
+      <button onclick="toggleTareas('tareasPendientes')">🕒 Pendientes</button>
+      <button onclick="toggleTareas('tareasRevision')">📎 Por revisar</button>
+      <button onclick="toggleTareas('tareasRevisadas')">✅ Revisadas</button>
+
+    </div>
+
+   <div id="listaTareas"></div>
+
+
+<div id="tareasPendientes" class="bloque-estado">
+
+<h3>🕒 Pendientes</h3>
+
+</div>
+
+
+
+<div id="tareasRevision" class="bloque-estado">
+
+<h3>📎 Por revisar</h3>
+
+</div>
+
+
+
+<div id="tareasRevisadas" class="bloque-estado">
+
+<h3>✅ Revisadas</h3>
+
+</div>
+
+</section>
+
+<!-- ======================
+     ACTIVIDAD
+======================= -->
+<section id="actividad" class="seccion">
+
+  <div class="tarjeta">
+    <h2>📊 Panel de rendimiento</h2>
+    <div id="panelRendimiento"></div>
+  </div>
+
+</section>
+
+<!-- ======================
+     REPORTES
+======================= -->
+<section id="reportes" class="seccion">
+
+  <div class="tarjeta">
+
+    <h2>📊 Reportes académicos</h2>
+
+    <div id="reporteGeneral">
+      Cargando reportes...
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+</div>
+
+<!-- ======================
+     SCRIPTS
+======================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase.js"></script>
+<script src="../js/docente.js"></script>
+
+</body>
+</html>
