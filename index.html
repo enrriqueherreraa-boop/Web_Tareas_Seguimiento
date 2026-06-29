@@ -5,70 +5,408 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seguimiento de Tareas</title>
 
+</head>
+
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background:#f2f4f8;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
 
-.login{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    width:350px;
-    box-shadow:0 0 10px rgba(0,0,0,.2);
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-input{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
+
+*{
     box-sizing:border-box;
 }
 
-button{
-    width:100%;
-    padding:10px;
-    background:#2563eb;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
+
+body{
+
+    margin:0;
+    min-height:100vh;
+
+    font-family:'Inter',sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #f7ecec 0%,
+    #ffffff 45%,
+    #4b0f20 100%
+    );
+
+    overflow:hidden;
+
 }
+
+
+/* decoracion fondo */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:600px;
+height:600px;
+
+background:#5b1228;
+
+transform:rotate(45deg);
+
+right:-300px;
+top:-250px;
+
+opacity:.9;
+
+z-index:0;
+
+}
+
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:#5b1228;
+
+transform:rotate(45deg);
+
+left:-300px;
+bottom:-250px;
+
+opacity:.9;
+
+z-index:0;
+
+}
+
+
+
+/* tarjeta login */
+
+.login{
+
+position:relative;
+
+z-index:2;
+
+
+width:420px;
+
+
+background:white;
+
+
+padding:45px;
+
+
+border-radius:28px;
+
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.25);
+
+
+text-align:center;
+
+}
+
+
+
+/* logo */
+
+.login img{
+
+width:130px;
+
+height:130px;
+
+object-fit:contain;
+
+margin-bottom:15px;
+
+}
+
+
+
+/* titulo */
+
+.login h2{
+
+font-size:32px;
+
+margin:10px 0;
+
+color:#5b1228;
+
+font-weight:700;
+
+}
+
+
+
+/* texto */
+
+.login p{
+
+color:#777;
+
+margin-bottom:30px;
+
+}
+
+
+
+/* etiquetas */
+
+.login label{
+
+display:block;
+
+text-align:left;
+
+font-weight:600;
+
+color:#5b1228;
+
+margin-top:15px;
+
+}
+
+
+
+/* inputs */
+
+.login input[type="text"],
+.login input[type="password"]{
+
+
+width:100%;
+
+padding:15px;
+
+margin-top:8px;
+
+
+border-radius:14px;
+
+
+border:1px solid #cfa5ae;
+
+
+font-size:15px;
+
+
+outline:none;
+
+}
+
+
+
+.login input:focus{
+
+border-color:#7b3045;
+
+box-shadow:
+
+0 0 0 4px #7b304522;
+
+}
+
+
+
+/* recordar */
+
+
+.recordar{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+margin:18px 0;
+
+text-align:left;
+
+}
+
+
+
+.recordar input{
+
+width:auto;
+
+}
+
+
+
+/* boton */
+
+.login button{
+
+
+width:100%;
+
+
+padding:15px;
+
+
+border:none;
+
+
+border-radius:14px;
+
+
+background:
+
+linear-gradient(
+135deg,
+#8b3048,
+#4b0f20
+);
+
+
+color:white;
+
+
+font-size:17px;
+
+
+font-weight:700;
+
+
+cursor:pointer;
+
+
+transition:.25s;
+
+
+}
+
+
+
+.login button:hover{
+
+
+transform:translateY(-3px);
+
+
+box-shadow:
+
+0 10px 25px #5b122855;
+
+
+}
+
+
+
+/* pie */
+
+.login::after{
+
+content:"© 2025 Unidad Educativa Simón Bolívar";
+
+display:block;
+
+margin-top:35px;
+
+font-size:13px;
+
+color:#777;
+
+}
+
+
+
 </style>
 
-</head>
 <body>
 
 <div class="login">
 
-<h2>Seguimiento de Tareas</h2>
 
-<input type="text" id="usuario" placeholder="Usuario">
+<img 
+src="imagenes/Institucion.jpg">
 
-<input type="password" id="password" placeholder="Contraseña">
+
+<h2>
+Seguimiento de Tareas
+</h2>
+
+
+<p>
+Ingresa para acceder al sistema
+</p>
+
+
 
 <label>
-<input type="checkbox">
-Mantener sesión iniciada
+Usuario
 </label>
 
-<br><br>
-<button id="btnLogin">
-    Ingresar
-</button>
+
+<input 
+type="text"
+id="usuario"
+placeholder="Usuario">
+
+
+
+<label>
+Contraseña
+</label>
+
+
+<input 
+type="password"
+id="password"
+placeholder="Contraseña">
+
+
+
+<div class="recordar">
+
+
+<input type="checkbox">
+
+
+<span>
+Mantener sesión iniciada
+</span>
+
 
 </div>
+
+
+
+<button id="btnLogin">
+
+Ingresar
+
+</button>
+
+
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/supabase.js"></script>
 
 <script src="js/auth.js"></script>
+
 
 </body>
 </html
